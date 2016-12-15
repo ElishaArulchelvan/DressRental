@@ -1,0 +1,16 @@
+<!DOCTYPE
+<h1>Dresses for Rent</h1>
+<% if !@dresses.empty? %>
+	<% @dresses.each do |dress| %>
+		<% if dress.available == true %>
+		<%= image_tag(dress.image, :size => "50x50") %>
+		<h3><%= dress.colour %></h3>
+		<%= dress.size %>
+		<%=dress.price %>
+		<%= button_to 'Add to Cart', lineitems_path(dress_id: dress) %>
+		<%end %>
+	<% end %>
+<% else %>
+	<p>There are no dresses available to rent</p>
+<% end %>
+

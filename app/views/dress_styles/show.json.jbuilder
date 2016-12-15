@@ -1,0 +1,1 @@
+json.partial! "dress_styles/dress_style", dress_style: @dress_style

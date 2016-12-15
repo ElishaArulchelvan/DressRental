@@ -1,0 +1,1 @@
+json.array! @dress_styles, partial: 'dress_styles/dress_style', as: :dress_style

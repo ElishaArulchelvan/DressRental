@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @dress_style.style %>
+</p>
+
+<p>
+  <% @dress_style.dresses.each do |dress| %>
+    <br>
+    <%=dress.colour%>
+    <%=dress.size%>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_dress_style_path(@dress_style) %> |
+<%= link_to 'Back', dress_styles_path %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DressRental1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="banner">
+     <%=image_tag("dress_rental.jpg", :size=>"100x50")%>
+     <%="Dress Rental" %>
+</div>
+
+<div id="columns">
+  <ul>
+  	<li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Dresses", dresses_path %></li>
+	<li><%= link_to "Dress Styles", dress_styles_path %></li>
+	<li><%= link_to "Rent Dress", shop_index_path %></li>
+	
+	<% if !signed_in? %>
+		<li><%= link_to "Sign In", login_path%></li>
+	<% else %>
+		<li>Signed in as <%= @current_customer.name %></li>
+		<li><%= link_to "Sign Out", logout_path %></li>
+	<%end%>
+	
+	<% if !adminsigned_in? %>
+		<li><%= link_to "Admin Sign In", adminlogin_path%></li>
+	<% else %>
+		<li>Admin: <%= @admincurrent_admin.email %></li>
+		<li><%=link_to "Sign Out", adminlogout_path %></li>
+	<% end %>
+	<li><%= render '/dresses/search'%></li>
+  </ul>
+</div>
+	
+	 
+<%= yield %>
+
+</body>
+</html>
